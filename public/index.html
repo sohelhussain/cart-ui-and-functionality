@@ -3,17 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>chart</title>
+    <title>cart</title>
     <link
       href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
   </head>
-  <body>
-    <div class="main w-full h-screen bg-red-100">
+  <body class="w-screen h-full bg-red-100">
+    <div class="main w-full h-full bg-red-100 relative">
       <div class="page-1 w-full h-screen">
-        <nav class="w-full p-6 flex items-center justify-between bg-slate-10">
+        <nav
+          class="w-full fixed p-6 flex items-center z-40 justify-between bg-slate-10"
+        >
           <div
             class="serach-box w-1/2 h-0 flex items-center justify-between px-6 py-6 rounded-2xl bg-red-400 backdrop-filter backdrop-blur-3xl bg-opacity-40 shadow-[-10px_-10px_30px_4px_rgba(0,0,0,0.1),_10px_10px_30px_4px_rgba(45,78,255,0.15)]"
           >
@@ -25,14 +27,57 @@
             <i class="ri-search-2-line mr-3 text-xl text-white"></i>
           </div>
           <div
-            class="chart bg-red-400 px-4 py-3 rounded-lg backdrop-filter backdrop-blur-3xl bg-opacity-40 shadow-[-10px_-10px_30px_4px_rgba(0,0,0,0.1),_10px_10px_30px_4px_rgba(45,78,255,0.15)]"
+            class="chart bg-red-400 px-4 py-3 cursor-pointer rounded-lg backdrop-filter backdrop-blur-3xl bg-opacity-40 shadow-[-10px_-10px_30px_4px_rgba(0,0,0,0.1),_10px_10px_30px_4px_rgba(45,78,255,0.15)]"
           >
             <i class="ri-shopping-bag-2-fill text-white text-xl"></i>
           </div>
         </nav>
-        <div class="inner-body w-full h-fit bg-red-500">
-          <div class="cards w-80 h-96 bg-blue-300 p-1">
-            <div class="image-box rounded-lg w-full h-48 bg-green-300"></div>
+        <div
+          class="side-cart w-96 h-[80%] bg-cyan-200 flex flex-col gap-8 px-6 pt-10 fixed -right-96 top-28 rounded-2xl backdrop-filter backdrop-blur-3xl bg-opacity-90 shadow-[-10px_-10px_30px_4px_rgba(0,0,0,0.1),_5px_5px_10px_4px_rgba(45,78,255,0.15)]"
+        >
+          <div
+            class="cart-prodects w-full h-24 rounded-2xl relative flex gap-5 items-center pl-4 bg-cyan-500 backdrop-filter backdrop-blur-3xl bg-opacity-50 shadow-[-10px_-10px_30px_4px_rgba(0,0,0,0.1),_10px_10px_30px_4px_rgba(45,78,255,0.15)]"
+          >
+            <div class="image-side w-16 h-16 rounded-2xl overflow-hidden">
+              <img
+                class="object-cover object-center w-full h-full"
+                src=""
+                alt=""
+              />
+            </div>
+            <div class="texts">
+              <h2 class="mt-1 text-g uppercase">this the world</h2>
+              <h4 class="mt-0 text-g text-black/50">this the world</h4>
+              <h4 class="mt-0 text-l text-black/50">$ 200</h4>
+            </div>
+            <button
+              class="btn bottom-2 right-2 absolute px-3 py-2 text-xl rounded-full bg-gradient-to-br from-zinc-50 to-red-400 backdrop-filter backdrop-blur-3xl bg-opacity-50 shadow-[-10px_-10px_30px_4px_rgba(0,0,0,0.1),_10px_10px_30px_4px_rgba(45,78,255,0.15)]"
+            >
+              <i class="ri-close-fill"></i>
+            </button>
+          </div>
+        </div>
+        <div
+          class="inner-body w-full h-fit bgred-500 px-6 py-36 flex flex-wrap items-center justify-center gap-10"
+        >
+          <div
+            class="cards w-80 h-96 bg-blue-300 relative p-1 rounded-lg backdrop-filter backdrop-blur-3xl bg-opacity-90 shadow-[-10px_-10px_30px_4px_rgba(0,0,0,0.1),_10px_10px_30px_4px_rgba(45,78,255,0.15)]"
+          >
+            <div class="image-box rounded-lg w-full h-48 overflow-hidden">
+              <img
+                class="object-cover object-center w-full h-full"
+                src=""
+                alt=""
+              />
+            </div>
+            <h2 class="ml-8 mt-14 text-2xl uppercase">this the world</h2>
+            <h4 class="ml-8 mt-3 text-lg text-black/50">this the world</h4>
+            <h4 class="ml-8 mt-3 text-lg text-black/50">$ 200</h4>
+            <button
+              class="btn bottom-6 right-6 absolute px-3 py-2 text-2xl rounded-full bg-gradient-to-br from-zinc-50 to-green-400 backdrop-filter backdrop-blur-3xl bg-opacity-50 shadow-[-10px_-10px_30px_4px_rgba(0,0,0,0.1),_10px_10px_30px_4px_rgba(45,78,255,0.15)]"
+            >
+              <i class="ri-add-fill"></i>
+            </button>
           </div>
         </div>
       </div>
