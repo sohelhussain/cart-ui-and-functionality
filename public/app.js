@@ -101,10 +101,10 @@ const showCartProduct = () => {
         <h4 class="mt-0 text-g text-black/50">${product.subHead}</h4>
         <h4 class="mt-0 text-l text-black/50">${product.price}</h4>
       </div>
-      <button
-        class="btn bottom-2 right-2 absolute px-3 py-2 text-xl rounded-full bg-gradient-to-br from-zinc-50 to-red-400 backdrop-filter backdrop-blur-3xl bg-opacity-50 shadow-[-10px_-10px_30px_4px_rgba(0,0,0,0.1),_10px_10px_30px_4px_rgba(45,78,255,0.15)]"
+      <button data-index="${index}"
+        class="btn true bottom-2 right-2 absolute px-3 py-2 text-xl rounded-full bg-gradient-to-br from-zinc-50 to-red-400 backdrop-filter backdrop-blur-3xl bg-opacity-50 shadow-[-10px_-10px_30px_4px_rgba(0,0,0,0.1),_10px_10px_30px_4px_rgba(45,78,255,0.15)]"
       >
-        <i class="ri-close-fill"></i>
+        <i data-index="${index}" class="ri-close-fill true"></i>
       </button>
     </div>`
     });
@@ -114,6 +114,10 @@ const showCartProduct = () => {
 };
 showCartProduct();
 const removeCartProduct = () => {
-  document.querySelector(`.side-cart`)
+  document.querySelector(`.side-cart`).onclick = (btn) => {
+    if(btn.target.classList.contains("true")){
+      cart.pop(btn.target.dataset.index)
+    }
+  };
 };
 removeCartProduct();
