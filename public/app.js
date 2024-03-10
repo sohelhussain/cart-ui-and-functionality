@@ -36,9 +36,9 @@ const card = [
   },
 ];
 const cart = [];
-const showCard = () => {
+const showCard = (pro) => {
   let clutter = "";
-  card.forEach((card, index) => {
+  pro.forEach((card, index) => {
     clutter += `          <div
         class="cards w-80 h-96 bg-blue-300 relative p-1 rounded-lg backdrop-filter backdrop-blur-3xl bg-opacity-90 shadow-[-10px_-10px_30px_4px_rgba(0,0,0,0.1),_10px_10px_30px_4px_rgba(45,78,255,0.15)]"
       >
@@ -61,7 +61,7 @@ const showCard = () => {
   });
   document.querySelector(`.inner-body`).innerHTML = clutter;
 };
-showCard();
+showCard(card);
 const addCart = () => {
   document.querySelector(`.inner-body`).onclick = (btn) => {
     if (btn.target.classList.contains("true")) {
@@ -84,7 +84,7 @@ const showCartProduct = () => {
       });
       flage = true;
     }
-    let clutter = '';
+    let clutter = "";
     cart.forEach((product, index) => {
       clutter += `          <div
       class="cart-prodects w-full h-24 rounded-2xl relative overflow-hidden flex-wrap flex gap-5 items-center pl-4 bg-cyan-500 backdrop-filter backdrop-blur-3xl bg-opacity-50 shadow-[-10px_-10px_30px_4px_rgba(0,0,0,0.1),_10px_10px_30px_4px_rgba(45,78,255,0.15)]"
@@ -106,18 +106,27 @@ const showCartProduct = () => {
       >
         <i data-index="${index}" class="ri-close-fill true"></i>
       </button>
-    </div>`
+      <h3>total value</h3>
+    </div>`;
     });
     document.querySelector(`.side-cart`).innerHTML = clutter;
   };
-
 };
 showCartProduct();
 const removeCartProduct = () => {
   document.querySelector(`.side-cart`).onclick = (btn) => {
-    if(btn.target.classList.contains("true")){
-      cart.pop(btn.target.dataset.index)
+    if (btn.target.classList.contains("true")) {
+      cart.pop(btn.target.dataset.index);
     }
   };
 };
 removeCartProduct();
+const search = () => {
+  const input = document.querySelector(`#in`);
+  input.oninput = e => {
+    const filterd = card.filter(search => search.startsWith(input.value.toLowerCase()));
+showCard(filterd);
+  };
+
+};
+search();
